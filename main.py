@@ -1,70 +1,72 @@
 import os
 import time
-todo = []
-filename = "todo.txt"
+tasks = []
+filename = "tasks.txt"
 
 if not os.path.exists(filename):
-    with open(filename, "w") as file:
-        pass
+    open(filename, "w").close()
+
 
 with open(filename, "r") as file:
-    todo = file.read().splitlines()
+    tasks = file.read().splitlines()
 
 while True:
-    user_action = input("Type what you want to do:\nAdd\nShow\nEdit\nRemove\nComplete\nq/quit ").strip().lower()
+    action = input("Actions:\nAdd\nShow\nEdit\nRemove\nComplete\nQuit\nChoose and action: ").strip().lower()
 
-    if user_action == "add":
-        new_todo = input("Type your todo: ")
-        todo.append(new_todo)
+    if action == "add":
+        task = input("Enter a new task: ")
+        tasks.append(task)
         with open(filename, "a") as file:
-            file.write(f"{new_todo}\n")
+            file.write(f"{task}\n")
 
-    elif user_action == "show":
-        for item in todo:
-            item = item.title()
-            print(f"Todo: {item}")
-        time.sleep(3)
+    elif action == "show":
+        for item in tasks:
+            print(f"Task: {item}")
+        time.sleep(2)
 
-    elif user_action == "edit":
-        print("Current items:")
-        for i, item in enumerate(todo):
-            print(f"{i}: {item}")
+    elif action == "edit":
+        print("Current tasks:")
+        for index, item in enumerate(tasks):
+            print(f"{index}: {item}")
         try:
-            number = int(input("Type the number of the item you want to edit: "))
-            previous_todo = todo[number]
-            new_todo = input("Type your new todo: ")
-            todo[number] = new_todo
-            print(f"Item {previous_todo} edited. New todo: {new_todo}")
+            task_index = int(input("Enter the number of the task to edit: "))
+            old_task = tasks[task_index]
+            new_task = input("Enter the new task: ")
+            tasks[task_index] = new_task
+            print(f"Task updated from '{old_task}' to '{new_task}'")
             with open(filename, "w") as file:
-                file.write("\n".join(todo))
+                file.write("\n".join(tasks))
         except (ValueError, IndexError):
-            print("Invalid number")
+            print("Invalid task number")
 
-    elif user_action == "remove":
+    elif action == "remove":
         try:
-            number = int(input("Type the number of the item you want to remove: "))
-            del todo[number]
-            print(f"Item {number} removed.")
+            task_index = int(input("Enter the number of the task to remove: "))
+            removed_task = tasks.pop(task_index)
+            print(f"Task '{removed_task}' removed.")
             with open(filename, "w") as file:
-                file.write("\n".join(todo))
+                file.write("\n".join(tasks))
         except (ValueError, IndexError):
-            print("Invalid number")
+            print("Invalid task number")
 
-    elif user_action == "complete":
-        print("Current items:")
-        for i, item in enumerate(todo):
-            print(f"{i}: {item}")
+    elif action == "complete":
+        print("Current tasks:")
+        for index, item in enumerate(tasks):
+            print(f"{index}: {item}")
         try:
-            number = int(input("Type the number of the item you want to complete: "))
-            completed_todo = todo[number]
-            del todo[number]
-            print(f"Item {completed_todo} completed and removed.")
-            with open(filename, "w") as file:
-                file.write("\n".join(todo))
+            task_index = int(input("Enter the number of the task to mark as complete: "))
+            task_to_complete = tasks[task_index]
+            if "(complete)" in task_to_complete:
+                print(f"Task '{task_to_complete}' is already marked as complete.")
+            else:
+                tasks[task_index] = task_to_complete + " (complete)"
+                print(f"Task '{task_to_complete}' marked as complete.")
+                with open(filename, "w") as file:
+                    file.write("\n".join(tasks))
         except (ValueError, IndexError):
-            print("Invalid number")
+            print("Invalid task number")
 
-    elif user_action in ['q', 'quit']:
+    elif action in ['quit']:
         print("Goodbye!")
         break
 
