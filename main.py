@@ -1,5 +1,5 @@
 import os
-
+import time
 todo = []
 filename = "todo.txt"
 
@@ -23,6 +23,7 @@ while True:
         for item in todo:
             item = item.title()
             print(f"Todo: {item}")
+        time.sleep(3)
 
     elif user_action == "edit":
         print("Current items:")
