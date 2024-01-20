@@ -1,6 +1,6 @@
 hello
 bye
-queen'
+hello bye
 king
 prince
 princess (complete)

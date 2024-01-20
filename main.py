@@ -24,8 +24,15 @@ def add_task(tasks):
     update_tasks_file(tasks)
 
 def show_tasks(tasks):
-    display_tasks(tasks)
-    time.sleep(2)
+    if tasks:
+        print("\nCurrent Tasks:")
+        display_tasks(tasks)
+        print("\nEnd of Task List.\n")
+    else:
+        print("\nNo tasks available. Your list is all clear!\n")
+
+    input("Press Enter to continue...")
+
 
 def edit_task(tasks):
     display_tasks(tasks)
@@ -81,17 +88,17 @@ def main():
     while True:
         print_menu()
         action = input().strip().lower()
-        if action == "1" or action == "add":
+        if action == "add":
             add_task(tasks)
-        elif action == "2" or action == "show":
+        elif action == "show":
             show_tasks(tasks)
-        elif action == "3" or action == "edit":
+        elif action == "edit":
             edit_task(tasks)
-        elif action == "4" or action == "remove":
+        elif action == "remove":
             remove_task(tasks)
-        elif action == "5" or action == "complete":
+        elif action == "complete":
             complete_task(tasks)
-        elif action == "6" or action == "quit":
+        elif action == "quit":
             print("Goodbye!")
             break
         else:
