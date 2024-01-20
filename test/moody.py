@@ -125,3 +125,18 @@ colors = [11, 34, 98, 43, 45, 54, 54]
 for color in colors:
     if color > 50:
         print(color)
+
+# This function calculates and prints out the maximum value in the 'grades' list.
+# This function calculates and returns the maximum value in the 'grades' list.
+def get_max():
+    grades = [9.6, 9.2, 9.7]
+    return max(grades)
+
+print(get_max())
+
+# This function returns a string with the maximum and minimum values from the 'grades' list.
+def get_max():
+    grades = [9.6, 9.2, 9.7]
+    return f"Max: {max(grades)}, Min: {min(grades)}"
+
+print(get_max())
