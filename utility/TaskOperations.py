@@ -1,10 +1,16 @@
 from .FileOperations import FileOperations
+import datetime
 
 class TaskOperations:
     @staticmethod
     def add_task(tasks):
         task_description = input("Enter a new task: ")
-        new_task = {"description": task_description, "status": "ongoing"}
+        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        new_task = {
+            "description": task_description, 
+            "status": "ongoing",
+            "created_at": current_time
+        }
         tasks.append(new_task)
         FileOperations.update_tasks_file(tasks)
 
