@@ -140,3 +140,53 @@ def get_max():
     return f"Max: {max(grades)}, Min: {min(grades)}"
 
 print(get_max())
+
+# This function converts liters to cubic meters.
+def liters_to_m3(liters):
+    return liters / 1000
+
+# Check if the password has eight or more characters, at least one uppercase letter, and at least one digit
+def strength(password):
+    if len(password) >= 8 and any(char.isupper() for char in password) and any(char.isdigit() for char in password):
+        return "Strong Password"
+    else:
+        return "Weak Password"
+
+# Calculate the sum of all elements in the list and divide by the length of the list
+def average_list_values(numbers_list):
+    return sum(numbers_list) / len(numbers_list)
+
+# Return a greeting string with the person's name
+def greet_person(name):
+    return "Hi " + name
+
+# Concatenate str1 and str2 and return the result
+def concatenate_strings(str1, str2):
+    return str1 + str2
+
+    # Capitalize the first letter of the name and return the greeting
+def greet_person(name):
+    return "Hi " + name.capitalize()
+
+# Calculate and return the age based on the year of birth and the current year
+def get_age(year_of_birth, current_year=2023):
+    return current_year - year_of_birth
+
+# This function counts the number of comma-separated items in a given string.
+def get_nr_items(items_string):
+    return len(items_string.split(','))
+
+# This function calculates the area of a square given the length of its side.
+def square_area(side):
+    return side * side
+
+# This function classifies a temperature as "Warm" if it's greater than 7, and "Cold" if it's 7 or less.
+def temperature_classification(temperature):
+    if temperature > 7:
+        return "Warm"
+    else:
+        return "Cold"
+
+# This function checks if a string contains 8 or more characters.
+def check_string_length(string):
+    return len(string) >= 8
