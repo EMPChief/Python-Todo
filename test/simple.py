@@ -7,19 +7,22 @@ inches_label = sg.Text("Enter inches: ")
 inches_input = sg.Input()
 
 button = sg.Button("Convert")
+exit_button = sg.Button("Exit")
 
 result_label = sg.Text("", size=(20, 1))
 
 layout = [[feet_label, feet_input],
           [inches_label, inches_input],
-          [button],
+          [button, exit_button],
           [result_label]]
+
+sg.theme("green")
 
 window = sg.Window("Convertor", layout)
 
 while True:
     event, values = window.read()
-    if event == sg.WINDOW_CLOSED:
+    if event == sg.WINDOW_CLOSED or event == "Exit":
         break
     elif event == "Convert":
         feet = float(values[0])
