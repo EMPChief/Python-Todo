@@ -190,3 +190,12 @@ def temperature_classification(temperature):
 # This function checks if a string contains 8 or more characters.
 def check_string_length(string):
     return len(string) >= 8
+
+# This function determines the state of water based on a given temperature.
+def water_state(temperature):
+    if temperature <= 0:
+        return "Solid"
+    elif temperature < 100:
+        return "Liquid"
+    else:
+        return "Gas"
