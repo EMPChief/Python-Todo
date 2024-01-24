@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 
+
 def showtask():
     try:
         with open("db/db.json", "r") as file:
@@ -9,13 +10,15 @@ def showtask():
         if data:
             st.write("### Task List:")
             for item in data:
-                st.write(f"- **Task: {item['description']} | Status: {item['status']}**")
+                st.write(
+                    f"- **Task: {item['description']} | Status: {item['status']}**")
         else:
             st.write("### No tasks available. Your list is all clear!")
     except FileNotFoundError:
         st.error("File not found. Please check the file path.")
     except json.JSONDecodeError:
         st.error("Error in reading the JSON file.")
+
 
 def edit_task(task_index, new_description):
     try:

@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 
 class FileOperations:
     filename = Path("db/db.json")
@@ -17,4 +20,3 @@ class FileOperations:
     def update_tasks_file(tasks):
         with FileOperations.filename.open("w") as file:
             json.dump(tasks, file, indent=4)
-

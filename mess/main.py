@@ -1,7 +1,6 @@
 from utility import FileOperations, TaskOperations, UserInterface
 
 
-
 def main():
     tasks = FileOperations.initialize_tasks()
     while True:
@@ -22,6 +21,7 @@ def main():
             break
         else:
             print("Invalid action")
+
 
 if __name__ == "__main__":
     main()
