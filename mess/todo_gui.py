@@ -6,6 +6,14 @@ import json
 from pathlib import Path
 
 
+"""
+FileOperations provides static methods to initialize the tasks list from the 
+JSON file, and save the updated tasks list back to the JSON file.
+
+TodoApp handles the Tkinter GUI and task management logic.
+"""
+
+
 class FileOperations:
     db_folder = Path("db")
     filename = db_folder / "db.json"

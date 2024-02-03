@@ -1,5 +1,14 @@
 from utility import FileOperations, TaskOperations, UserInterface
 
+"""
+main() is the entry point for the todo list CLI application.
+
+It initializes the tasks from file, prints the menu, prompts for user 
+input, and calls the appropriate operation functions based on the input.
+
+The main loop continues until the user enters 'quit'.
+"""
+
 
 def main():
     tasks = FileOperations.initialize_tasks()

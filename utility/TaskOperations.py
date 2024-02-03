@@ -2,6 +2,18 @@ from .FileOperations import FileOperations
 import datetime
 
 
+"""
+TaskOperations contains static methods for managing tasks in a to-do list.
+
+Methods:
+- add_task: Prompts for a new task description and adds it to the tasks list.
+- edit_task: Prompts for a task index and new description to edit an existing task.
+- remove_task: Prompts for a task index and removes that task from the list.  
+- complete_task: Prompts for a task index and marks that task as complete.
+- display_tasks: Prints the description and status of all tasks.
+"""
+
+
 class TaskOperations:
     @staticmethod
     def add_task(tasks):

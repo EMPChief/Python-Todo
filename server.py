@@ -4,6 +4,13 @@ from pathlib import Path
 import datetime
 import secrets
 
+"""
+Flask application and supporting classes for a simple todo list app.
+This code defines a Flask application and supporting classes for a straightforward todo list app. 
+It exposes REST endpoints for CRUD operations on tasks and stores tasks in a local JSON file. 
+Additionally, it provides a web UI for viewing and modifying tasks.
+"""
+
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 

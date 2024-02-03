@@ -2,6 +2,12 @@ import json
 import datetime
 import PySimpleGUI as sg
 
+"""
+Provides functionality for managing TODO tasks. 
+
+Includes classes for file I/O, adding/editing/removing tasks, 
+marking tasks as complete, and displaying the task list.
+"""
 sg.theme("DarkPurple5")
 window_title = 'TODO List - [favicon.ico]'
 

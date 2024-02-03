@@ -2,6 +2,17 @@ import json
 from pathlib import Path
 
 
+"""File operations for task database.
+
+This class provides methods for initializing the task 
+database if it doesn't exist, loading tasks from the 
+database, and saving tasks to the database.
+
+The filename refers to a JSON file that will store the
+task data.
+"""
+
+
 class FileOperations:
     filename = Path("db/db.json")
 

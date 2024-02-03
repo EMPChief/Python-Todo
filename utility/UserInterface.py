@@ -1,6 +1,15 @@
 from .TaskOperations import TaskOperations
 
 
+"""
+UserInterface provides static methods for interacting with the user.
+
+show_tasks prints the provided list of tasks, or a default message if no tasks exist.
+
+print_menu prints a menu of actions the user can take.
+"""
+
+
 class UserInterface:
     @staticmethod
     def show_tasks(tasks):
